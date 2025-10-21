@@ -4,6 +4,11 @@
       "name": "escrow",
       "path": "./escrow.tact",
       "output": "./build"
+    },
+    {
+      "name": "Escrow",
+      "path": "./Escrow.tact",
+      "output": "./build"
     }
   ]
 }
