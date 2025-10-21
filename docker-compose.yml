@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  # Backend API
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ton-escrow-backend
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+      - TON_NETWORK=testnet
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    networks:
+      - ton-escrow-network
+    restart: unless-stopped
+
+  # Frontend
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: ton-escrow-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - NEXT_PUBLIC_API_URL=http://backend:3001
+      - NEXT_PUBLIC_NETWORK=testnet
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+      - /app/.next
+    depends_on:
+      - backend
+    networks:
+      - ton-escrow-network
+    restart: unless-stopped
+
+networks:
+  ton-escrow-network:
+    driver: bridge
+
+volumes:
+  backend_node_modules:
+  frontend_node_modules:
