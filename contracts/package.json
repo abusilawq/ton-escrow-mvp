@@ -5,7 +5,9 @@
   "scripts": {
     "build": "tact --config tact.config.json",
     "test": "yarn jest",
-    "deploy": "ts-node scripts/deploy.ts"
+    "deploy:testnet": "TON_NETWORK=testnet ts-node scripts/deploy.ts",
+    "deploy:mainnet": "TON_NETWORK=mainnet ts-node scripts/deploy.ts",
+    "deploy": "npm run deploy:testnet"
   },
   "keywords": ["TON", "escrow", "smart-contract", "tact"],
   "author": "",
