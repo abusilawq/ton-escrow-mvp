@@ -1,0 +1,29 @@
+{
+  "name": "ton-escrow-mvp",
+  "version": "1.0.0",
+  "description": "TON Escrow MVP with Telegram Bot",
+  "main": "bot.js",
+  "scripts": {
+    "bot": "node bot.js",
+    "bot:dev": "nodemon bot.js",
+    "install:all": "npm install && cd backend && npm install && cd ../frontend && npm install && cd ../contracts && npm install && cd ../bot && npm install"
+  },
+  "keywords": [
+    "TON",
+    "escrow",
+    "telegram",
+    "bot",
+    "blockchain",
+    "cryptocurrency"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "node-telegram-bot-api": "^0.64.0",
+    "axios": "^1.6.0",
+    "dotenv": "^16.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
